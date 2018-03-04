@@ -9,7 +9,11 @@ const server = http.createServer((req, res) => {
   });
   switch (req.method) {
     case 'GET':
-      res.write(jade.renderFile('./form.jade', {}));
+      res.write(jade.renderFile('./form.jade', {
+        path: req.url,
+        firstItem: '焼肉',
+        secondItem: 'しゃぶしゃぶ'
+      }));
       res.end();
       break;
     case 'POST':
